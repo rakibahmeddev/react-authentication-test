@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Header = () => {
+  const { user, logOutUser } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOutUser()
+      .then(() => {
+        console.log('user logged out success');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const links = (
     <>
-       <NavLink
+      <NavLink
         to="/"
         className={({ isActive }) =>
           (isActive
@@ -36,11 +50,33 @@ const Header = () => {
       >
         Register
       </NavLink>
+
+      <NavLink
+        to="/orders"
+        className={({ isActive }) =>
+          (isActive
+            ? 'text-base text-yellow-300'
+            : 'text-base text-white hover:text-yellow-300') + ' ml-4'
+        }
+      >
+        Orders
+      </NavLink>
+
+      <NavLink
+        to="/invoice"
+        className={({ isActive }) =>
+          (isActive
+            ? 'text-base text-yellow-300'
+            : 'text-base text-white hover:text-yellow-300') + ' ml-4'
+        }
+      >
+        Invoice
+      </NavLink>
     </>
   );
 
   return (
-    <header className="navbar px-3  shadow-sm bg-cyan-950 text-white rounded-full my-4">
+    <header className="navbar px-3  shadow-sm bg-cyan-950 text-white rounded-2xl my-4">
       <div className="navbar-start">
         <Link
           to="/"
@@ -53,9 +89,23 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn rounded-full bg-yellow-300 texyt-white border-0 px-6 shadow-none">
-          Login / Register
-        </button>
+        <p>{user?.email}</p>
+
+        {user ? (
+          <button
+            onClick={handleLogOut}
+            className="btn rounded-lg ml-2 bg-yellow-300 texyt-white border-0 px-6 shadow-none"
+          >
+            Sign Out
+          </button>
+        ) : (
+          <Link
+            to="/login"
+            className="btn rounded-full ml-2 bg-yellow-300 texyt-white border-0 px-6 shadow-none"
+          >
+            Login
+          </Link>
+        )}
 
         <div className="dropdown">
           <div

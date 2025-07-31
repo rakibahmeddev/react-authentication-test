@@ -1,12 +1,31 @@
-# React + Vite
+# Nexora 🌐
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [nexora.surge.sh](https://nexora.surge.sh)
 
-Currently, two official plugins are available:
+**Nexora** is a learning project focused on implementing modern React features along with Firebase Authentication. It covers essential user authentication flows using email/password and Google Sign-In.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** – JavaScript library for building UIs
+- **React Router DOM** – Client-side routing
+- **Tailwind CSS** – Utility-first CSS framework
+- **Preline UI** – Prebuilt UI components using Tailwind
+- **Firebase** – Only used for authentication (Register, Login, Google Sign-in)
+- **React Hooks** – `useState`, `useEffect`, and Context API
+
+---
+
+## 🔐 Authentication Features
+
+- ✅ Register with Email & Password
+- ✅ Login with Email & Password
+- ✅ Google Sign-in
+- ✅ Logout
+- ✅ Protected Routes
+- ✅ Global Auth State using React Context
+
+---
+
+## 📁 Folder Structure
